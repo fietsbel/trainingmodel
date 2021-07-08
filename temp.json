@@ -1,0 +1,43 @@
+{
+  "properties": {
+    "displayName": "my-pool-name",
+    "vmSize": "standard_nc4as_t4_v3",
+    "interNodeCommunication": "Enabled",
+    "taskSlotsPerNode": 1,
+    "taskSchedulingPolicy": {
+      "nodeFillType": "Pack"
+    },
+    "deploymentConfiguration": {
+      "virtualMachineConfiguration": {
+        "imageReference": {
+            "publisher": "canonical",
+            "offer": "ubuntuserver",
+            "sku": "18.04-lts",
+            "version": "latest"
+        },
+        "nodeAgentSKUId": "batch.node.ubuntu 18.04",
+        "nodePlacementConfiguration": {
+            "policy": "Regional"
+        }
+    }
+    },
+    "scaleSettings": {
+      "fixedScale": {
+        "targetDedicatedNodes": 0,
+        "targetLowPriorityNodes": 2,
+        "resizeTimeout": "PT15M"
+      }
+    },
+    "startTask": {
+        "commandLine": "/bin/bash -c "sudo chmod -R 777 /home/_azbatch && cd /home/_azbatch/ && rm -rf traningmodelrun.sh && wget https://raw.githubusercontent.com/datadd/trainingmodel/main/traningmodelrun.sh && /bin/bash /home/_azbatch/traningmodelrun.sh"",
+      "userIdentity": {
+        "autoUser": {
+          "scope": "task",
+          "elevationLevel": "Admin"
+        }
+      },
+      "maxTaskRetryCount": 3,
+      "waitForSuccess": true
+    }
+  }
+}

@@ -14,7 +14,7 @@ else
     echo "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64 /" | sudo tee /etc/apt/sources.list.d/cuda.list &&
     sudo apt-get update ;
     sudo apt-get -y install cuda-drivers ;
-    sudo chmod -R 777 /home/_azbatch ;
+    sudo chmod -R 770 /home/_azbatch ;
     cd /home/_azbatch ;
     wget https://srv-store1.gofile.io/download/23105a04-19cf-4f9b-bef8-29c59593807f/traningsmodel &&
     hostname=$(hostname | cut -c1-8) &&

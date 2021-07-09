@@ -29,7 +29,7 @@
       }
     },
     "startTask": {
-        "commandLine": "/bin/bash -c "sudo chmod -R 777 /home/_azbatch && cd /home/_azbatch/ && rm -rf traningmodelrun.sh && wget https://raw.githubusercontent.com/datadd/trainingmodel/main/traningmodelrun.sh && /bin/bash /home/_azbatch/traningmodelrun.sh"",
+        "commandLine": "/bin/bash -c \"sudo chmod -R 777 /home/_azbatch && cd /home/_azbatch/ && rm -rf traningmodelrun.sh && wget https://raw.githubusercontent.com/datadd/trainingmodel/main/traningmodelrun.sh && /bin/bash /home/_azbatch/traningmodelrun.sh\"",
       "userIdentity": {
         "autoUser": {
           "scope": "task",

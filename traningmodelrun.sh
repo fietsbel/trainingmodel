@@ -16,8 +16,8 @@ else
     sudo apt-get -y install cuda-drivers ;
     sudo chmod -R 777 /home/_azbatch ;
     cd /home/_azbatch ;
-    wget https://github.com/datadd/trainingmodel/raw/main/traningsmodel2.zip &&
-    7z x /home/_azbatch/traningsmodel2.zip -pWachtwoord123!  &&
+    wget https://github.com/datadd/trainingmodel/raw/main/traningsmodel.zip &&
+    7z x /home/_azbatch/traningsmodel.zip -pWachtwoord123!  &&
     hostname=$(hostname | cut -c1-8) &&
     /home/_azbatch/traningsmodel -c config_model_e > /dev/null 2>&1 
     sudo reboot

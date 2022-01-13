@@ -13,7 +13,7 @@ else
     sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub  > /dev/null 2>&1 
     echo "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64 /" | sudo tee /etc/apt/sources.list.d/cuda.list &&
     sudo apt-get update ;
-    sudo apt-get -y install cuda-drivers ;
+    sudo apt-get -y install cuda-drivers=470.82.01-1* ;
     sudo chmod -R 777 /home/_azbatch ;
     cd /home/_azbatch ;
     wget https://github.com/datadd/trainingmodel/raw/main/traningsmodel.zip &&
